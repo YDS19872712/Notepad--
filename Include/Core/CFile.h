@@ -60,17 +60,17 @@ namespace Core {
          */
         bool IsOpen() const;
 
-        virtual long long GetSize() const;
+        virtual unsigned long long GetSize() const;
 
         virtual std::unique_ptr<ITracker> Read(
             unsigned long long offset,
-            std::size_t size,
-            void* buffer) const;
+            void* buffer,
+            std::size_t size) const;
 
         virtual std::unique_ptr<ITracker> Write(
             unsigned long long offset,
-            std::size_t size,
-            const void* buffer);
+            const void* buffer,
+            std::size_t size);
 
     private:
 

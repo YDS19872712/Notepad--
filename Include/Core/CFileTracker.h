@@ -18,6 +18,9 @@ namespace Core {
 
         virtual State GetState() const;
 
+        /**
+         * Fills OVERLAPPED structure Offset and OffsetHigh fields.
+         */
         void SetOffset(unsigned long long offset);
 
         OVERLAPPED* GetOverlapped();

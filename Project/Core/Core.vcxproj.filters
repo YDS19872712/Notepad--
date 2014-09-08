@@ -35,6 +35,9 @@
     <ClInclude Include="..\..\Include\Core\CNullStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Include\Core\CBatchTracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Core\CFile.cpp">
@@ -53,6 +56,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\CNullStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Core\CBatchTracker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

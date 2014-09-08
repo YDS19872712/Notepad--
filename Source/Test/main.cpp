@@ -1,30 +1,32 @@
 #include <iostream>
+#include <Core/CChangeBuffer.h>
+#include <Core/CNullStorage.h>
 #include <Core/CFile.h>
 
 int main(int argc, char* argv[])
 {
-    using Core::CFile;
-    using Core::ITracker;
+    using namespace Core;
 
-    CFile file(TEXT("d:\\test.exe"), CFile::MODE_READ);
+    CFile* file = new CFile(TEXT("D:\\test.txt.txt"), CFile::MODE_READ);
 
-    if (file.IsOpen()) {
-        std::cout << "Is open!\n";
+    std::unique_ptr<IDataStorage> s(file);
 
-        std::unique_ptr<char> buf(new char[file.GetSize()]);        
-        std::cout << "File size = " << file.GetSize() << std::endl;
+    CChangeBuffer buf(std::move(s));
 
-        auto tracker = file.Read(0, file.GetSize(), buf.get());
-        std::cout << tracker->GetState() << std::endl;
+    buf.Insert(3, "Hello", 5);
+    buf.Insert(130, "!!!UMBRA!!!", 11);
+    buf.Insert(3, "---", 3);
 
-        while (ITracker::STATE_PENDING == tracker->GetState()) {
-            std::cout << "Waiting...\n";
-            std::cout.flush();
-        }
+    char cb[1024];
+    memset(&cb, 0, sizeof(cb));
 
-    } else {
-        std::cout << "Cannot open!\n";
+    auto t = buf.Read(0, cb, static_cast<std::size_t>(buf.GetSize()));
+
+    while (t->GetState() == ITracker::STATE_PENDING) {
+        std::cout << "pending\n";
     }
+
+    std::cout << cb;
 
     return 0;
 }

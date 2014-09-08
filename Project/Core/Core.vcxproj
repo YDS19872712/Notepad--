@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Core\CChangeBuffer.h" />
+    <ClInclude Include="..\..\Include\Core\CBatchTracker.h" />
     <ClInclude Include="..\..\Include\Core\CFileTracker.h" />
     <ClInclude Include="..\..\Include\Core\CNullStorage.h" />
     <ClInclude Include="..\..\Include\Core\CTrackerComplete.h" />
@@ -22,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Core\CChangeBuffer.cpp" />
+    <ClCompile Include="..\..\Source\Core\CBatchTracker.cpp" />
     <ClCompile Include="..\..\Source\Core\CFileTracker.cpp" />
     <ClCompile Include="..\..\Source\Core\CTrackerComplete.cpp" />
     <ClCompile Include="..\..\Source\Core\CTrackerFailed.cpp" />

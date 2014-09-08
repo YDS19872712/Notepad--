@@ -66,19 +66,19 @@ CFile& CFile::operator =(CFile&& file)
     return *this;
 }
 
-long long CFile::GetSize() const
+unsigned long long CFile::GetSize() const
 {
     LARGE_INTEGER result;
     if (::GetFileSizeEx(m_handle, &result)) {
-        return result.QuadPart;
+        return static_cast<unsigned long long>(result.QuadPart);
     }
-    return -1;
+    return 0;
 }
 
 unique_ptr<ITracker> CFile::Read(
     unsigned long long offset,
-    size_t size,
-    void* buffer) const
+    void* buffer,
+    size_t size) const
  {
     auto fileTracker = new CFileTracker;
     fileTracker->SetOffset(offset);
@@ -99,8 +99,8 @@ unique_ptr<ITracker> CFile::Read(
 
 unique_ptr<ITracker> CFile::Write(
     unsigned long long offset,
-    size_t size,
-    const void* buffer)
+    const void* buffer,
+    size_t size)
 {
     auto fileTracker = new CFileTracker;
     fileTracker->SetOffset(offset);
