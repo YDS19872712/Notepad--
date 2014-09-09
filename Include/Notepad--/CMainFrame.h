@@ -29,6 +29,9 @@ private:
         MSG_WM_DESTROY(OnDestroy)
         MSG_WM_SIZE   (OnSize)
 
+        COMMAND_ID_HANDLER(ID_FILE_NEW,  OnFileNew)
+        COMMAND_ID_HANDLER(ID_FILE_OPEN, OnFileOpen)
+
         CHAIN_MSG_MAP(CFrameWindowImpl<CMainFrame>)
 //      CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
 
@@ -39,6 +42,10 @@ private:
     void OnDestroy();
 
     LRESULT OnSize(UINT, CSize);
+
+    LRESULT OnFileNew(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnFileOpen(WORD, WORD, HWND, BOOL&);
 
     CEditorCtrl m_editor;
 };

@@ -8,6 +8,9 @@
 #include <cstddef>
 #include <Core/IDataStorage.h>
 
+// Conflicts with windows.h
+#undef max
+
 namespace Core {
     /**
      * A class that remembers all changes made to the file.
