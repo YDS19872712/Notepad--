@@ -23,7 +23,12 @@ void CEditorCtrl::DoPaint(CDCHandle dc)
 {
     RECT rc;
     GetClientRect(&rc);
-    dc.GradientFillRect(rc, RGB(255,255,0), RGB(100,100,255), FALSE);
 
-    SetScrollSize(600, 600, TRUE, false);
+    int p = GetScrollPos(SB_VERT);
+    wchar_t b[100];
+    wsprintfW(b, L"%i", p);
+
+    dc.TextOutW(10, p + 10, b, lstrlenW(b));
+
+    SetScrollSize(100, 100600, TRUE, false);
 }

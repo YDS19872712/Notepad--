@@ -23,8 +23,24 @@ LRESULT CMainFrame::OnSize(UINT nType, CSize size)
 {
     if (m_editor.IsWindow()) {
         m_editor.SetWindowPos(
-            NULL, 0, 0, size.cx, size.cy,
-            SWP_NOMOVE | SWP_NOZORDER);
+            HWND_BOTTOM,
+            0, 0,
+            size.cx, size.cy,
+            SWP_NOMOVE);
     }
+    return 0;
+}
+
+LRESULT CMainFrame::OnFileNew(WORD, WORD, HWND, BOOL& bHandled)
+{
+    SetWindowText(TEXT("OnFileNew"));
+    bHandled = TRUE;
+    return 0;
+}
+
+LRESULT CMainFrame::OnFileOpen(WORD, WORD, HWND, BOOL& bHandled)
+{
+    SetWindowText(TEXT("OnFileOpen"));
+    bHandled = TRUE;
     return 0;
 }
