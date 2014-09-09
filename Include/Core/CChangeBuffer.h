@@ -22,8 +22,6 @@ namespace Core {
          */
         explicit CChangeBuffer(std::unique_ptr<IDataStorage> storage);
 
-        ~CChangeBuffer();
-
         /**
          * Gets total size of the buffer.
          * @returns Size in bytes.
@@ -44,6 +42,16 @@ namespace Core {
         bool Insert(
             unsigned long long offset,
             const void* data,
+            std::size_t size);
+
+        /**
+         * Deletes the data from the change buffer.
+         * @param offset An offset from which to start the deletion.
+         * @param size Number of bytes to delete.
+         * @returns true if deletion succeeded.
+         */
+        bool Delete(
+            unsigned long long offset,
             std::size_t size);
 
     private:

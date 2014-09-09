@@ -82,11 +82,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Notepad--\CEditorCtrl.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\CMainFrame.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Include\Notepad--\CEditorCtrl.h" />
     <ClInclude Include="..\..\Include\Notepad--\CMainFrame.h" />
+    <ClInclude Include="..\..\Include\Notepad--\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\Source\Notepad--\resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Source\Notepad--\main.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
