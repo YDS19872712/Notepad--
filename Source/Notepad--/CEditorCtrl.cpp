@@ -4,7 +4,7 @@ void CEditorCtrl::DoPaint(CDCHandle dc)
 {
     RECT rc;
     GetClientRect(&rc);
-    dc.GradientFillRect(rc, RGB(255,0,0), RGB(100,100,0), FALSE);
+    dc.GradientFillRect(rc, RGB(255,255,0), RGB(100,100,255), FALSE);
 
-    //SetScrollSize(1000000, 1000000, TRUE, false);
+    SetScrollSize(600, 600, TRUE, false);
 }

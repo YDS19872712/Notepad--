@@ -18,3 +18,13 @@ void CMainFrame::OnDestroy()
 {
     ::PostQuitMessage(0);
 }
+
+LRESULT CMainFrame::OnSize(UINT nType, CSize size)
+{
+    if (m_editor.IsWindow()) {
+        m_editor.SetWindowPos(
+            NULL, 0, 0, size.cx, size.cy,
+            SWP_NOMOVE | SWP_NOZORDER);
+    }
+    return 0;
+}
