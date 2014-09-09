@@ -4,6 +4,7 @@
 #include <atlbase.h>
 #include <atlapp.h>
 #include <atlwinx.h>
+#include <atldlgs.h>
 #include <atlmisc.h>
 #include <atlcrack.h>
 #include <atlframe.h>
@@ -25,12 +26,15 @@ private:
 
 	BEGIN_MSG_MAP(CMainFrame)
 
-        MSG_WM_CREATE (OnCreate)
-        MSG_WM_DESTROY(OnDestroy)
-        MSG_WM_SIZE   (OnSize)
+        MSG_WM_CREATE(OnCreate)
+        MSG_WM_CLOSE (OnClose)
+        MSG_WM_SIZE  (OnSize)
 
-        COMMAND_ID_HANDLER(ID_FILE_NEW,  OnFileNew)
-        COMMAND_ID_HANDLER(ID_FILE_OPEN, OnFileOpen)
+        COMMAND_ID_HANDLER(ID_FILE_NEW,     OnFileNew)
+        COMMAND_ID_HANDLER(ID_FILE_OPEN,    OnFileOpen)
+        COMMAND_ID_HANDLER(ID_FILE_SAVE,    OnFileSave)
+        COMMAND_ID_HANDLER(ID_FILE_SAVE_AS, OnFileSaveAs)
+        COMMAND_ID_HANDLER(ID_APP_EXIT,     OnAppExit)
 
         CHAIN_MSG_MAP(CFrameWindowImpl<CMainFrame>)
 //      CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
@@ -39,13 +43,27 @@ private:
 
     LRESULT OnCreate(LPCREATESTRUCT);
 
-    void OnDestroy();
+    void OnClose();
 
     LRESULT OnSize(UINT, CSize);
 
     LRESULT OnFileNew(WORD, WORD, HWND, BOOL&);
 
     LRESULT OnFileOpen(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnFileSave(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnFileSaveAs(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnAppExit(WORD, WORD, HWND, BOOL&);
+
+    LRESULT DoFileSave(bool);
+
+    bool DoExit();
+
+    void SetTitle(PCTSTR);
+
+    bool PreventDataLoss();
 
     CEditorCtrl m_editor;
 };
