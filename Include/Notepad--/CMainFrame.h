@@ -4,6 +4,7 @@
 #include <atlbase.h>
 #include <atlapp.h>
 #include <atlwinx.h>
+#include <atlmisc.h>
 #include <atlcrack.h>
 #include <atlframe.h>
 #include <Notepad--/CEditorCtrl.h>
@@ -26,6 +27,7 @@ private:
 
         MSG_WM_CREATE (OnCreate)
         MSG_WM_DESTROY(OnDestroy)
+        MSG_WM_SIZE   (OnSize)
 
         CHAIN_MSG_MAP(CFrameWindowImpl<CMainFrame>)
 //      CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
@@ -35,6 +37,8 @@ private:
     LRESULT OnCreate(LPCREATESTRUCT);
 
     void OnDestroy();
+
+    LRESULT OnSize(UINT, CSize);
 
     CEditorCtrl m_editor;
 };

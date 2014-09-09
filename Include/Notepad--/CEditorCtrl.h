@@ -6,7 +6,7 @@
 #include <atlwinx.h>
 #include <atlscrl.h>
 
-class CEditorCtrl :  public CMapScrollWindowImpl<CEditorCtrl>
+class CEditorCtrl : public CScrollWindowImpl<CEditorCtrl>
 {
 public:
 
@@ -16,7 +16,7 @@ private:
 
     BEGIN_MSG_MAP(CEditorCtrl)
 
-        CHAIN_MSG_MAP(CMapScrollWindowImpl<CEditorCtrl>)
+        CHAIN_MSG_MAP(CScrollWindowImpl<CEditorCtrl>)
 
     END_MSG_MAP();
 
