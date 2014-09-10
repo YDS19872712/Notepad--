@@ -150,6 +150,7 @@ bool CMainFrame::PreventDataLoss()
                 (0 == DoFileSave(false)))) {
             return true;
         }
+        return false;
     }
-    return false;
+    return true;
 }

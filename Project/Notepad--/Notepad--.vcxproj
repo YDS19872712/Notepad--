@@ -84,11 +84,13 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\Notepad--\CEditorCtrl.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\CMainFrame.cpp" />
+    <ClCompile Include="..\..\Source\Notepad--\CSavingDlg.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Notepad--\CEditorCtrl.h" />
     <ClInclude Include="..\..\Include\Notepad--\CMainFrame.h" />
+    <ClInclude Include="..\..\Include\Notepad--\CSavingDlg.h" />
     <ClInclude Include="..\..\Include\Notepad--\resource.h" />
   </ItemGroup>
   <ItemGroup>

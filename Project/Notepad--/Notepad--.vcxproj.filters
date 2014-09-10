@@ -24,6 +24,9 @@
     <ClCompile Include="..\..\Source\Notepad--\CEditorCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Notepad--\CSavingDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Notepad--\CMainFrame.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Include\Notepad--\CEditorCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\Notepad--\CSavingDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

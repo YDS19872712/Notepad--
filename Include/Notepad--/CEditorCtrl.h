@@ -64,7 +64,7 @@ private:
 
     bool DoFileOpen();
 
-    void DoFileSave();
+    bool DoFileSave();
 
     TCHAR m_path[MAX_PATH];
 

@@ -1,5 +1,6 @@
 #include <Core/CFile.h>
 #include <Core/CNullStorage.h>
+#include <Notepad--/CSavingDlg.h>
 #include <Notepad--/CEditorCtrl.h>
 
 using namespace std;
@@ -57,18 +58,16 @@ LRESULT CEditorCtrl::OnFileOpen(UINT, WPARAM, LPARAM lParam, BOOL& handled)
 
 LRESULT CEditorCtrl::OnFileSave(UINT, WPARAM, LPARAM, BOOL& handled)
 {
-    DoFileSave();
     handled = true;
-    return 0;
+    return DoFileSave() ? 0 : -1;
 }
 
 LRESULT CEditorCtrl::OnFileSaveAs(UINT, WPARAM, LPARAM lParam, BOOL& handled)
 {
+    handled = true;
     PCTSTR path = reinterpret_cast<PCTSTR>(lParam);
     ::lstrcpyn(m_path, path, MAX_PATH);
-    DoFileSave();
-    handled = true;
-    return 0;
+    return DoFileSave() ? 0 : -1;
 }
 
 void CEditorCtrl::DoPaint(CDCHandle dc)
@@ -108,8 +107,16 @@ bool CEditorCtrl::DoFileOpen()
 
     return false;
 }
-
-void CEditorCtrl::DoFileSave()
+bool CEditorCtrl::DoFileSave()
 {
-    ;
+    CSavingDlg dlg;
+
+    unique_ptr<CFile> dst(new CFile(TEXT("D:\\qwerty.txt"), CFile::MODE_WRITE));
+
+    dlg.m_source = m_changeBuffer.get();
+    dlg.m_destination = dst.get();
+
+    dlg.DoModal(m_hWnd, 0);
+
+    return true;
 }
