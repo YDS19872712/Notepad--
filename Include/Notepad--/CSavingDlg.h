@@ -46,15 +46,15 @@ private:
 
     CProgressBarCtrl m_progress;
 
-    std::unique_ptr<Core::ITracker> m_trackers[2];
+    std::unique_ptr<Core::ITracker> m_readTracker, m_writeTracker;
 
-    std::vector<BYTE> m_buffers[2];
-
-    std::size_t m_readBufferIndex;
+    std::vector<BYTE> m_readBuffer, m_writeBuffer;
 
     unsigned long long m_bytesTotal;
 
     unsigned long long m_bytesWritten;
+
+    unsigned long long m_bytesRead;
 };
 
 #endif // CSAVINGDLG_H

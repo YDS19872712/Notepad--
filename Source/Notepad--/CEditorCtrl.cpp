@@ -1,3 +1,4 @@
+#include <shlwapi.h>
 #include <Scintilla.h>
 #include <Core/CFile.h>
 #include <Core/CNullStorage.h>
@@ -227,12 +228,26 @@ bool CEditorCtrl::DoFileSave()
     ::lstrcpy(tmpPath, m_path);
     ::lstrcat(tmpPath, TEXT("~"));
 
-    unique_ptr<CFile> dst(new CFile(tmpPath, CFile::MODE_WRITE));
+    unsigned int mode = CFile::MODE_WRITE;
+
+    if(::PathFileExists(tmpPath)) {
+        mode |= CFile::MODE_TRUNCATE;
+    }
+
+    unique_ptr<CFile> dst(new CFile(tmpPath, mode));
 
     dlg.m_source = m_changeBuffer.get();
     dlg.m_destination = dst.get();
 
-    dlg.DoModal(m_hWnd, 0);
+    int result = dlg.DoModal(m_hWnd, 0);
+
+    dst.reset();
+
+    if (0 == result) {
+        ::MoveFileEx(tmpPath, m_path, MOVEFILE_REPLACE_EXISTING);
+    } else {
+        ::DeleteFile(tmpPath);
+    }
 
     return true;
 }

@@ -19,8 +19,9 @@ namespace Core {
          */
         enum Mode
         {
-            MODE_READ  = 1,
-            MODE_WRITE = 2
+            MODE_READ     = 1,
+            MODE_WRITE    = 2,
+            MODE_TRUNCATE = 4
         };
 
         /**

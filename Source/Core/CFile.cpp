@@ -16,6 +16,10 @@ CFile::CFile(PCTSTR path, unsigned int mode)
         mode & MODE_WRITE ? OPEN_ALWAYS : (
             mode & MODE_READ ? OPEN_EXISTING : 0);
 
+    if (mode & MODE_TRUNCATE) {
+        creationDisposition |= TRUNCATE_EXISTING;
+    }
+
     m_handle = ::CreateFile(
         path,
         desiredAccess,
