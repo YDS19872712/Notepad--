@@ -2,5 +2,5 @@
 
 Solution consists of three projects:
 + Core library
-+ Test
++ Scintilla component
 + User interface

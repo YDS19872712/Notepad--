@@ -16,8 +16,12 @@ LRESULT CMainFrame::OnCreate(LPCREATESTRUCT)
 
     RECT rc;
     GetClientRect(&rc);
-    
+
+    CEditorCtrl::Init();
     m_editor.Create(m_hWnd, rc);
+
+    UISetCheck(ID_FORMAT_WORDWRAP, TRUE);
+    m_editor.SendMessage(ECM_FORMAT_WORDWRAP, TRUE);
 
     SetMsgHandled(false);
     return 0;
@@ -26,18 +30,6 @@ LRESULT CMainFrame::OnCreate(LPCREATESTRUCT)
 void CMainFrame::OnClose()
 {
     DoExit();
-}
-
-LRESULT CMainFrame::OnSize(UINT nType, CSize size)
-{
-    if (m_editor.IsWindow()) {
-        m_editor.SetWindowPos(
-            HWND_BOTTOM,
-            0, 0,
-            size.cx, size.cy,
-            SWP_NOMOVE);
-    }
-    return 0;
 }
 
 LRESULT CMainFrame::OnFileNew(WORD, WORD, HWND, BOOL& handled)
@@ -90,6 +82,25 @@ LRESULT CMainFrame::OnAppExit(WORD, WORD, HWND, BOOL& handled)
     return DoExit() ? 0 : -1;
 }
 
+LRESULT CMainFrame::OnWordWrap(WORD, WORD, HWND, BOOL& handled)
+{
+    handled = TRUE;
+    DWORD state = UIGetState(ID_FORMAT_WORDWRAP);
+    bool checked = !((UPDUI_CHECKED & state) || (UPDUI_CHECKED2 & state));
+    m_editor.SendMessage(ECM_FORMAT_WORDWRAP, checked);
+    UISetCheck(ID_FORMAT_WORDWRAP, checked);
+    return 0;
+}
+
+void CMainFrame::UpdateLayout(BOOL)
+{
+    if (m_editor.IsWindow()) {
+        RECT rc;
+        GetClientRect(&rc);
+        m_editor.SetWindowPos(NULL, &rc, SWP_NOMOVE | SWP_NOZORDER);
+    }
+}
+
 LRESULT CMainFrame::DoFileSave(bool askPath)
 {
     HRESULT result = 0;
@@ -120,6 +131,7 @@ bool CMainFrame::DoExit()
 {
     if (PreventDataLoss()) {
         m_editor.DestroyWindow();
+        m_editor.m_hWnd = NULL;
         DestroyWindow();
         ::PostQuitMessage(0);
         return true;

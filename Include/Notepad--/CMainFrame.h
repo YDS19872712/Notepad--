@@ -16,28 +16,34 @@
  */
 class CMainFrame
     : public CFrameWindowImpl<CMainFrame>
-//  , public CUpdateUI<CMainFrame>
+    , public CUpdateUI<CMainFrame>
 {
 public:
 
 	DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME);
 
+    BEGIN_UPDATE_UI_MAP(CMainFrame)
+
+        UPDATE_ELEMENT(ID_FORMAT_WORDWRAP, UPDUI_MENUPOPUP)
+
+    END_UPDATE_UI_MAP()
+
 private:
 
 	BEGIN_MSG_MAP(CMainFrame)
 
-        MSG_WM_CREATE(OnCreate)
-        MSG_WM_CLOSE (OnClose)
-        MSG_WM_SIZE  (OnSize)
+        MSG_WM_CREATE (OnCreate)
+        MSG_WM_CLOSE  (OnClose)
 
-        COMMAND_ID_HANDLER(ID_FILE_NEW,     OnFileNew)
-        COMMAND_ID_HANDLER(ID_FILE_OPEN,    OnFileOpen)
-        COMMAND_ID_HANDLER(ID_FILE_SAVE,    OnFileSave)
-        COMMAND_ID_HANDLER(ID_FILE_SAVE_AS, OnFileSaveAs)
-        COMMAND_ID_HANDLER(ID_APP_EXIT,     OnAppExit)
+        COMMAND_ID_HANDLER(ID_FILE_NEW,        OnFileNew)
+        COMMAND_ID_HANDLER(ID_FILE_OPEN,       OnFileOpen)
+        COMMAND_ID_HANDLER(ID_FILE_SAVE,       OnFileSave)
+        COMMAND_ID_HANDLER(ID_FILE_SAVE_AS,    OnFileSaveAs)
+        COMMAND_ID_HANDLER(ID_APP_EXIT,        OnAppExit)
+        COMMAND_ID_HANDLER(ID_FORMAT_WORDWRAP, OnWordWrap)
 
         CHAIN_MSG_MAP(CFrameWindowImpl<CMainFrame>)
-//      CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
+        CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
 
     END_MSG_MAP();
 
@@ -56,6 +62,10 @@ private:
     LRESULT OnFileSaveAs(WORD, WORD, HWND, BOOL&);
 
     LRESULT OnAppExit(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnWordWrap(WORD, WORD, HWND, BOOL&);
+
+    void UpdateLayout(BOOL = FALSE);
 
     LRESULT DoFileSave(bool);
 

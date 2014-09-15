@@ -2,20 +2,26 @@
 #define CEDITORCTRL_H
 
 #include <memory>
+#include <vector>
 #include <atlbase.h>
 #include <atlapp.h>
 #include <atlwinx.h>
 #include <atlmisc.h>
 #include <atlcrack.h>
-#include <atlscrl.h>
+#include <Scintilla.h>
 #include <Core/CChangeBuffer.h>
 
-#define ECM_FILE_NEW     WM_USER + 1
-#define ECM_FILE_OPEN    WM_USER + 2
-#define ECM_FILE_SAVE    WM_USER + 3
-#define ECM_FILE_SAVE_AS WM_USER + 4
+#define ECM_FILE_NEW        WM_USER + 1
+#define ECM_FILE_OPEN       WM_USER + 2
+#define ECM_FILE_SAVE       WM_USER + 3
+#define ECM_FILE_SAVE_AS    WM_USER + 4
+#define ECM_FORMAT_WORDWRAP WM_USER + 5
 
-class CEditorCtrl : public CScrollWindowImpl<CEditorCtrl>
+#define SCINTILLA_CTRL_ID 1001
+
+class CEditorCtrl
+    : public CWindowImpl<CEditorCtrl>
+    , public CIdleHandler
 {
 public:
 
@@ -27,28 +33,40 @@ public:
 
     bool IsModified() const;
 
+    static void Init();
+
 private:
+
+    struct SScintilla
+    {
+        CWindow m_wnd;
+        void* m_ptr;
+        int (* m_fn)(void*, int, int, int);
+
+        int Send(int, int = 0, int = 0);
+    };
 
     BEGIN_MSG_MAP(CEditorCtrl)
 
-        MSG_WM_CREATE     (OnCreate)
-        MSG_WM_LBUTTONDOWN(OnLButtonDown)
-        MSG_WM_KEYDOWN    (OnKeyDown)
+        MSG_WM_CREATE (OnCreate)
+        MSG_WM_DESTROY(OnDestroy)
+        MSG_WM_SIZE   (OnSize)
 
-        MESSAGE_HANDLER(ECM_FILE_NEW,     OnFileNew)
-        MESSAGE_HANDLER(ECM_FILE_OPEN,    OnFileOpen)
-        MESSAGE_HANDLER(ECM_FILE_SAVE,    OnFileSave)
-        MESSAGE_HANDLER(ECM_FILE_SAVE_AS, OnFileSaveAs)
+        MESSAGE_HANDLER(ECM_FILE_NEW,        OnFileNew)
+        MESSAGE_HANDLER(ECM_FILE_OPEN,       OnFileOpen)
+        MESSAGE_HANDLER(ECM_FILE_SAVE,       OnFileSave)
+        MESSAGE_HANDLER(ECM_FILE_SAVE_AS,    OnFileSaveAs)
+        MESSAGE_HANDLER(ECM_FORMAT_WORDWRAP, OnFormatWordWrap)
 
-        CHAIN_MSG_MAP(CScrollWindowImpl<CEditorCtrl>)
+        NOTIFY_HANDLER(SCINTILLA_CTRL_ID, SCN_UPDATEUI, OnScintillaUpdateUI)
 
     END_MSG_MAP();
 
     LRESULT OnCreate(LPCREATESTRUCT);
 
-    LRESULT OnLButtonDown(UINT, CPoint);
+    void OnDestroy();
 
-    LRESULT OnKeyDown(TCHAR, UINT, UINT);
+    LRESULT OnSize(UINT, CSize);
 
     LRESULT OnFileNew(UINT, WPARAM, LPARAM, BOOL&);
 
@@ -58,7 +76,11 @@ private:
 
     LRESULT OnFileSaveAs(UINT, WPARAM, LPARAM, BOOL&);
 
-    void DoPaint(CDCHandle);
+    LRESULT OnFormatWordWrap(UINT, WPARAM, LPARAM, BOOL&);
+
+    LRESULT OnScintillaUpdateUI(int, NMHDR*, BOOL&);
+
+    BOOL OnIdle();
 
     void DoFileNew();
 
@@ -66,11 +88,19 @@ private:
 
     bool DoFileSave();
 
+    void ResetScintilla();
+
     TCHAR m_path[MAX_PATH];
 
-    bool m_modified;
-
     std::unique_ptr<Core::CChangeBuffer> m_changeBuffer;
+
+    mutable SScintilla m_scintilla;
+
+    unsigned long long m_bytesRead, m_bytesToRead, m_bytesTotal;
+
+    std::unique_ptr<Core::ITracker> m_tracker;
+
+    std::vector<BYTE> m_buffer;
 };
 
 inline PCTSTR CEditorCtrl::GetPath() const
@@ -83,9 +113,9 @@ inline bool CEditorCtrl::PathIsEmpty() const
     return 0 == ::lstrlen(m_path);
 }
 
-inline bool CEditorCtrl::IsModified() const
+inline int CEditorCtrl::SScintilla::Send(int message, int first, int second)
 {
-    return m_modified;
+    return m_fn(m_ptr, message, first, second);
 }
 
 #endif // CEDITORCTRL_H

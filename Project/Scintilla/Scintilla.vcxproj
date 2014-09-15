@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\Accessor.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\CharacterCategory.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\CharacterSet.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\LexerBase.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\LexerModule.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\LexerNoExceptions.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\LexerSimple.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\PropSetSimple.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\StyleContext.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\LexLib\WordList.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\AutoComplete.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\CallTip.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\CaseConvert.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\CaseFolder.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Catalogue.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\CellBuffer.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\CharClassify.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\ContractionState.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Decoration.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Document.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\EditModel.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Editor.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\EditView.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\ExternalLexer.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Indicator.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\KeyMap.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\LineMarker.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\MarginView.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\PerLine.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\PlatWin.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\PositionCache.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\RESearch.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\RunStyles.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\ScintillaBase.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\ScintillaWin.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Selection.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\Style.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\UniConversion.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\ViewStyle.cxx" />
+    <ClCompile Include="..\..\ThirdParty\Scintilla\Source\XPM.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Include\ILexer.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Include\Platform.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Include\SciLexer.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Include\Scintilla.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Include\ScintillaWidget.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\Accessor.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\CharacterCategory.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\CharacterSet.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\LexAccessor.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\LexerBase.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\LexerModule.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\LexerNoExceptions.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\LexerSimple.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\OptionSet.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\PropSetSimple.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\SparseState.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\StringCopy.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\StyleContext.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\SubStyles.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\LexLib\WordList.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\AutoComplete.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\CallTip.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\CaseConvert.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\CaseFolder.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Catalogue.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\CellBuffer.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\CharClassify.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\ContractionState.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Decoration.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Document.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\EditModel.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Editor.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\EditView.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\ExternalLexer.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\FontQuality.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Indicator.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\KeyMap.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\LineMarker.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\MarginView.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Partitioning.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\PerLine.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\PositionCache.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\RESearch.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\RunStyles.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\ScintillaBase.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Selection.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\SplitVector.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\Style.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\UnicodeFromUTF8.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\UniConversion.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\ViewStyle.h" />
+    <ClInclude Include="..\..\ThirdParty\Scintilla\Source\XPM.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{56446064-38F8-40B1-BBD6-0D6D93B7FC97}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Scintilla</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(SolutionDir)Build\$(Configuration)\Int\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(SolutionDir)Build\$(Configuration)\Int\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>SCI_NAMESPACE;STATIC_BUILD;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\Scintilla\LexLib;$(SolutionDir)ThirdParty\Scintilla\Include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>SCI_NAMESPACE;STATIC_BUILD;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\Scintilla\LexLib;$(SolutionDir)ThirdParty\Scintilla\Include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

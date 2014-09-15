@@ -1,15 +1,18 @@
 #ifndef CSAVINGDLG_H
 #define CSAVINGDLG_H
 
+#include <memory>
+#include <vector>
 #include <atlbase.h>
 #include <atlapp.h>
 #include <atlwinx.h>
 #include <atlcrack.h>
 #include <atldlgs.h>
 #include <atlctrls.h>
-#include <Notepad--/resource.h>
+#include <Core/ITracker.h>
 #include <Core/CFile.h>
 #include <Core/CChangeBuffer.h>
+#include <Notepad--/resource.h>
 
 class CSavingDlg : public CDialogImpl<CSavingDlg>
 {
@@ -25,6 +28,8 @@ private:
         MSG_WM_DESTROY   (OnDestroy)
         MSG_WM_TIMER     (OnTimer)
 
+        COMMAND_HANDLER(IDCANCEL, BN_CLICKED, OnCancel)
+
     END_MSG_MAP()
 
     bool OnInitDialog(CWindow, LPARAM);
@@ -33,11 +38,19 @@ private:
 
     void OnTimer(UINT_PTR);
 
+    LRESULT OnCancel(WORD, WORD, HWND, BOOL&);
+
     Core::CFile* m_destination;
 
     Core::CChangeBuffer* m_source;
 
     CProgressBarCtrl m_progress;
+
+    std::unique_ptr<Core::ITracker> m_trackers[2];
+
+    std::vector<BYTE> m_buffers[2];
+
+    std::size_t m_readBufferIndex;
 
     unsigned long long m_bytesTotal;
 
