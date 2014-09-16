@@ -4,9 +4,9 @@ using namespace std;
 using namespace Core;
 
 #define TIMER_ID          1
-#define TIMER_ELAPSE      10
+#define TIMER_ELAPSE      5
 #define PROGRESS_RANGE    100
-#define BUFFER_SIZE       0x4000
+#define BUFFER_SIZE       0x8000
 
 bool CSavingDlg::OnInitDialog(CWindow, LPARAM)
 {
@@ -54,9 +54,9 @@ void CSavingDlg::OnTimer(UINT_PTR id)
             m_progress.RedrawWindow();
 
             if (m_bytesWritten >= m_bytesTotal) {
-                m_progress.SetPos(PROGRESS_RANGE);
                 return;
             }
+
             swap(m_readBuffer, m_writeBuffer);
             if (m_writeBuffer.size() > 0) {
                 m_writeTracker = m_destination->Write(

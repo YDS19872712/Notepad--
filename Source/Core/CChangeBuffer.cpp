@@ -55,7 +55,7 @@ unique_ptr<ITracker> CChangeBuffer::Read(
             trackers.push_back(m_storage->Read(
                 it->m_offsetReal + offsetInner, out, sizeOfChunk));
         } else {
-            ::memcpy(out, &it->m_data[0], min(sizeOfChunk, it->m_data.size()));
+            ::memcpy(out, &it->m_data[offsetInner], sizeOfChunk);
         }
 
         out += sizeOfChunk;

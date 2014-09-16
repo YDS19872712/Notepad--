@@ -13,7 +13,6 @@ using namespace Core;
 #define IDLE_TIMER_ELAPSE   50
 #define READ_BUFFER_SIZE    4096
 #define PRELOAD_SIZE        READ_BUFFER_SIZE * 30
-#define BYTES_TO_READ_COEFF 0.5
 
 extern CAppModule _Module;
 
@@ -49,6 +48,7 @@ LRESULT CEditorCtrl::OnCreate(LPCREATESTRUCT)
     m_scintilla.m_ptr = reinterpret_cast<void*>(
         m_scintilla.m_wnd.SendMessage(SCI_GETDIRECTPOINTER, 0, 0));
 
+    m_scintilla.Send(SCI_SETCODEPAGE, SC_CP_UTF8);
     m_scintilla.Send(SCI_SETMARGINWIDTHN, SC_MARGIN_NUMBER, 0);
     m_scintilla.Send(SCI_SETSCROLLWIDTHTRACKING, TRUE);
     m_scintilla.Send(SCI_SETHSCROLLBAR, TRUE);
@@ -142,7 +142,7 @@ LRESULT CEditorCtrl::OnScintillaUpdateUI(int id, NMHDR* hdr, BOOL& handled)
             ++lineNo;
         }
         int pos = m_scintilla.Send(SCI_POSITIONFROMLINE, lineNo);
-        if (pos > m_bytesToRead * BYTES_TO_READ_COEFF) {
+        if (pos > m_bytesToRead / 2) {
             m_bytesToRead += min(
                 READ_BUFFER_SIZE,
                 m_bytesTotal - m_bytesToRead);
@@ -234,6 +234,16 @@ bool CEditorCtrl::DoFileSave()
         mode |= CFile::MODE_TRUNCATE;
     }
 
+    // TODO: Rewrite. In the real world this will be
+    // very time-consuming.
+    m_changeBuffer->Delete(0, static_cast<size_t>(m_bytesRead));
+    int len = m_scintilla.Send(SCI_GETLENGTH);
+    vector<BYTE> tmp;
+    tmp.resize(len + 1);
+    m_scintilla.Send(SCI_GETTEXT, tmp.size(),
+        reinterpret_cast<int>(&tmp[0]));
+    m_changeBuffer->Insert(0, &tmp[0], len);
+
     unique_ptr<CFile> dst(new CFile(tmpPath, mode));
 
     dlg.m_source = m_changeBuffer.get();
@@ -242,12 +252,19 @@ bool CEditorCtrl::DoFileSave()
     int result = dlg.DoModal(m_hWnd, 0);
 
     dst.reset();
+    m_changeBuffer.reset();
 
     if (0 == result) {
         ::MoveFileEx(tmpPath, m_path, MOVEFILE_REPLACE_EXISTING);
+        m_scintilla.Send(SCI_SETSAVEPOINT);
     } else {
         ::DeleteFile(tmpPath);
     }
+
+    // TODO: Make it DRY
+    CFile* file = new CFile(m_path, CFile::MODE_READ);
+    unique_ptr<IDataStorage> storage(file);
+    m_changeBuffer.reset(new CChangeBuffer(std::move(storage)));
 
     return true;
 }
