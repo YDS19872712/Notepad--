@@ -26,6 +26,107 @@ bool CEditorCtrl::IsModified() const
     return m_scintilla.Send(SCI_GETMODIFY) != 0;
 }
 
+void CEditorCtrl::SetFont(CFontDialog& fd)
+{
+#ifdef _UNICODE
+
+    char faceName[LF_FACESIZE];
+
+    ::WideCharToMultiByte(
+        CP_UTF8, 0, fd.GetFaceName(), -1,
+        faceName, LF_FACESIZE, NULL, NULL);
+
+#define FONT_FACE_NAME faceName
+
+#else
+
+#define FONT_FACE_NAME fd.GetFaceName()
+
+#endif
+
+    m_scintilla.Send(
+        SCI_STYLESETFONT,
+        STYLE_DEFAULT,
+        reinterpret_cast<int>(FONT_FACE_NAME));
+
+    m_scintilla.Send(
+        SCI_STYLESETFORE,
+        STYLE_DEFAULT,
+        fd.GetColor());
+
+    m_scintilla.Send(
+        SCI_STYLESETUNDERLINE,
+        STYLE_DEFAULT,
+        fd.IsUnderline());
+
+    m_scintilla.Send(
+        SCI_STYLESETITALIC,
+        STYLE_DEFAULT,
+        fd.IsItalic());
+
+    m_scintilla.Send(
+        SCI_STYLESETWEIGHT,
+        STYLE_DEFAULT,
+        fd.GetWeight());
+
+    CDC dc(GetDC());
+
+    int fontSize = -::MulDiv(
+        fd.m_cf.lpLogFont->lfHeight, 72,
+        dc.GetDeviceCaps(LOGPIXELSY));
+
+    m_scintilla.Send(
+        SCI_STYLESETSIZE,
+        STYLE_DEFAULT,
+        fontSize);
+
+    m_scintilla.Send(SCI_STYLECLEARALL);
+}
+
+void CEditorCtrl::GetFont(CFontDialog& fd) const
+{
+    LOGFONT lf;
+
+#ifdef _UNICODE
+
+    char faceName[LF_FACESIZE];
+
+    m_scintilla.Send(
+        SCI_STYLEGETFONT,
+        STYLE_DEFAULT,
+        reinterpret_cast<int>(faceName));
+
+    ::MultiByteToWideChar(
+        CP_UTF8, 0, faceName, -1,
+        lf.lfFaceName, LF_FACESIZE);
+
+#else
+
+    m_scintilla.Send(
+        SCI_STYLEGETFONT,
+        STYLE_DEFAULT,
+        reinterpret_cast<int>(lf.lfFaceName));
+
+#endif
+
+    lf.lfUnderline = m_scintilla.Send(SCI_STYLEGETUNDERLINE, STYLE_DEFAULT);
+    lf.lfItalic = m_scintilla.Send(SCI_STYLEGETITALIC, STYLE_DEFAULT);
+    lf.lfWeight = m_scintilla.Send(SCI_STYLEGETWEIGHT, STYLE_DEFAULT);
+
+    lf.lfStrikeOut = FALSE;
+
+    CDC dc(::GetDC(m_hWnd));
+
+    lf.lfHeight = -::MulDiv(
+        m_scintilla.Send(SCI_STYLEGETSIZE, STYLE_DEFAULT),
+        dc.GetDeviceCaps(LOGPIXELSY), 72);
+
+    fd.SetLogFont(&lf);
+
+    fd.m_cf.rgbColors = static_cast<COLORREF>(
+        m_scintilla.Send(SCI_STYLEGETFORE, STYLE_DEFAULT));
+}
+
 LRESULT CEditorCtrl::OnCreate(LPCREATESTRUCT)
 {
     m_buffer.reserve(READ_BUFFER_SIZE);

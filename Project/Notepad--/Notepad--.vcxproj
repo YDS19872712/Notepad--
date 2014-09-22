@@ -69,7 +69,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SCI_NAMESPACE;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -84,12 +84,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Notepad--\CAboutWindow.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\CEditorCtrl.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\CMainFrame.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\CSavingDlg.cpp" />
     <ClCompile Include="..\..\Source\Notepad--\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Include\Notepad--\CAboutWindow.h" />
     <ClInclude Include="..\..\Include\Notepad--\CEditorCtrl.h" />
     <ClInclude Include="..\..\Include\Notepad--\CMainFrame.h" />
     <ClInclude Include="..\..\Include\Notepad--\CSavingDlg.h" />
@@ -99,6 +101,7 @@
     <ResourceCompile Include="..\..\Source\Notepad--\resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\README.md" />
     <None Include="..\..\Source\Notepad--\main.ico" />
     <None Include="..\..\Source\Notepad--\manifest.xml" />
   </ItemGroup>

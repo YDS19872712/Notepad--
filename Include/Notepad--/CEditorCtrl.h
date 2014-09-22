@@ -35,6 +35,10 @@ public:
 
     static void Init();
 
+    void SetFont(CFontDialog& fd);
+
+    void GetFont(CFontDialog& fd) const;
+
 private:
 
     struct SScintilla

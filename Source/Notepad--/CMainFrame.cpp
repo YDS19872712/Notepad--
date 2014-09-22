@@ -82,13 +82,39 @@ LRESULT CMainFrame::OnAppExit(WORD, WORD, HWND, BOOL& handled)
     return DoExit() ? 0 : -1;
 }
 
-LRESULT CMainFrame::OnWordWrap(WORD, WORD, HWND, BOOL& handled)
+LRESULT CMainFrame::OnFormatWordWrap(WORD, WORD, HWND, BOOL& handled)
 {
     handled = TRUE;
     DWORD state = UIGetState(ID_FORMAT_WORDWRAP);
     bool checked = !((UPDUI_CHECKED & state) || (UPDUI_CHECKED2 & state));
     m_editor.SendMessage(ECM_FORMAT_WORDWRAP, checked);
     UISetCheck(ID_FORMAT_WORDWRAP, checked);
+    return 0;
+}
+
+LRESULT CMainFrame::OnFormatFont(WORD, WORD, HWND, BOOL& handled)
+{
+    CFontDialog fd;    
+    m_editor.GetFont(fd);
+    if (IDOK == fd.DoModal()) {
+        m_editor.SetFont(fd);
+    }
+    return 0;
+}
+
+LRESULT CMainFrame::OnHelpAbout(WORD, WORD, HWND, BOOL& handled)
+{
+    if (m_about.IsWindow()) {
+        m_about.SetActiveWindow();
+    } else {
+        m_about.Create(
+            ::GetDesktopWindow(),
+            CWindow::rcDefault,
+            TEXT("README.md"),
+            WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+            WS_EX_TOOLWINDOW);
+    }
+    handled = TRUE;
     return 0;
 }
 
@@ -132,6 +158,10 @@ bool CMainFrame::DoExit()
     if (PreventDataLoss()) {
         m_editor.DestroyWindow();
         m_editor.m_hWnd = NULL;
+        if (m_about.IsWindow()) {
+            m_about.DestroyWindow();
+            m_about.m_hWnd = NULL;
+        }
         DestroyWindow();
         ::PostQuitMessage(0);
         return true;

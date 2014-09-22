@@ -9,6 +9,7 @@
 #include <atlcrack.h>
 #include <atlframe.h>
 #include <Notepad--/CEditorCtrl.h>
+#include <Notepad--/CAboutWindow.h>
 #include <Notepad--/resource.h>
 
 /**
@@ -40,7 +41,9 @@ private:
         COMMAND_ID_HANDLER(ID_FILE_SAVE,       OnFileSave)
         COMMAND_ID_HANDLER(ID_FILE_SAVE_AS,    OnFileSaveAs)
         COMMAND_ID_HANDLER(ID_APP_EXIT,        OnAppExit)
-        COMMAND_ID_HANDLER(ID_FORMAT_WORDWRAP, OnWordWrap)
+        COMMAND_ID_HANDLER(ID_FORMAT_WORDWRAP, OnFormatWordWrap)
+        COMMAND_ID_HANDLER(ID_FORMAT_FONT,     OnFormatFont)
+        COMMAND_ID_HANDLER(ID_HELP_ABOUT,      OnHelpAbout)
 
         CHAIN_MSG_MAP(CFrameWindowImpl<CMainFrame>)
         CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
@@ -63,7 +66,11 @@ private:
 
     LRESULT OnAppExit(WORD, WORD, HWND, BOOL&);
 
-    LRESULT OnWordWrap(WORD, WORD, HWND, BOOL&);
+    LRESULT OnFormatWordWrap(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnFormatFont(WORD, WORD, HWND, BOOL&);
+
+    LRESULT OnHelpAbout(WORD, WORD, HWND, BOOL&);
 
     void UpdateLayout(BOOL = FALSE);
 
@@ -76,6 +83,8 @@ private:
     bool PreventDataLoss();
 
     CEditorCtrl m_editor;
+
+    CAboutWindow m_about;
 };
 
 #endif // CMAINFRAME_H
