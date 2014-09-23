@@ -49,6 +49,7 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_core_1_1_c_file_tracker-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Core::CFileTracker Class Reference</div>  </div>
@@ -75,7 +76,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad99eeb9fda6609d8c494dc343b1ba2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current state of an operation that is tracked.  <a href="#ad99eeb9fda6609d8c494dc343b1ba2e4">More...</a><br /></td></tr>
 <tr class="separator:ad99eeb9fda6609d8c494dc343b1ba2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa351256887b0f4eb5140d153efed6dba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa351256887b0f4eb5140d153efed6dba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOffset</b> (unsigned long long offset)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_c_file_tracker.html#aa351256887b0f4eb5140d153efed6dba">SetOffset</a> (unsigned long long offset)</td></tr>
+<tr class="memdesc:aa351256887b0f4eb5140d153efed6dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills OVERLAPPED structure Offset and OffsetHigh fields. <br /></td></tr>
 <tr class="separator:aa351256887b0f4eb5140d153efed6dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5da320468322e22a6dc52c5aec6aec61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5da320468322e22a6dc52c5aec6aec61"></a>
 OVERLAPPED *&#160;</td><td class="memItemRight" valign="bottom"><b>GetOverlapped</b> ()</td></tr>
@@ -85,6 +87,12 @@ OVERLAPPED *&#160;</td><td class="memItemRight" valign="bottom"><b>GetOverlapped
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_i_tracker.html#a3ffb10d2b1adfc2c5a04a4fbf7578cb9">~ITracker</a> ()</td></tr>
 <tr class="memdesc:a3ffb10d2b1adfc2c5a04a4fbf7578cb9 inherit pub_methods_struct_core_1_1_i_tracker"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures virtual destructor. <br /></td></tr>
 <tr class="separator:a3ffb10d2b1adfc2c5a04a4fbf7578cb9 inherit pub_methods_struct_core_1_1_i_tracker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a074d37ffa4253e51f0b1110329906f72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a074d37ffa4253e51f0b1110329906f72"></a>
+OVERLAPPED&#160;</td><td class="memItemRight" valign="bottom"><b>m_overlapped</b></td></tr>
+<tr class="separator:a074d37ffa4253e51f0b1110329906f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -134,7 +142,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

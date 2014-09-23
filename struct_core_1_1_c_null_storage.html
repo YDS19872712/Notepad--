@@ -71,15 +71,15 @@ Inheritance diagram for Core::CNullStorage:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9025a0041d011d74d103ea0ac929e970"><td class="memItemLeft" align="right" valign="top">virtual long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_c_null_storage.html#a9025a0041d011d74d103ea0ac929e970">GetSize</a> () const </td></tr>
-<tr class="memdesc:a9025a0041d011d74d103ea0ac929e970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of contained data.  <a href="#a9025a0041d011d74d103ea0ac929e970">More...</a><br /></td></tr>
-<tr class="separator:a9025a0041d011d74d103ea0ac929e970"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ff1b43a8ae43d463759758f2c5f390e"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="struct_core_1_1_i_tracker.html">ITracker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_c_null_storage.html#a6ff1b43a8ae43d463759758f2c5f390e">Read</a> (unsigned long long offset, std::size_t size, void *buffer) const </td></tr>
-<tr class="memdesc:a6ff1b43a8ae43d463759758f2c5f390e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the specified number of bytes from the storage.  <a href="#a6ff1b43a8ae43d463759758f2c5f390e">More...</a><br /></td></tr>
-<tr class="separator:a6ff1b43a8ae43d463759758f2c5f390e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b4ca140d29b69077cd17f44c085869a"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="struct_core_1_1_i_tracker.html">ITracker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_c_null_storage.html#a3b4ca140d29b69077cd17f44c085869a">Write</a> (unsigned long long offset, std::size_t size, const void *buffer)</td></tr>
-<tr class="memdesc:a3b4ca140d29b69077cd17f44c085869a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the specified number of bytes to the storage.  <a href="#a3b4ca140d29b69077cd17f44c085869a">More...</a><br /></td></tr>
-<tr class="separator:a3b4ca140d29b69077cd17f44c085869a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970bb7c384509dd3bd19f81b270b90ab"><td class="memItemLeft" align="right" valign="top">virtual unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_c_null_storage.html#a970bb7c384509dd3bd19f81b270b90ab">GetSize</a> () const </td></tr>
+<tr class="memdesc:a970bb7c384509dd3bd19f81b270b90ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of contained data.  <a href="#a970bb7c384509dd3bd19f81b270b90ab">More...</a><br /></td></tr>
+<tr class="separator:a970bb7c384509dd3bd19f81b270b90ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a5439da3183921b1cde0f23da651072"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="struct_core_1_1_i_tracker.html">ITracker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_c_null_storage.html#a2a5439da3183921b1cde0f23da651072">Read</a> (unsigned long long offset, void *buffer, std::size_t size) const </td></tr>
+<tr class="memdesc:a2a5439da3183921b1cde0f23da651072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the specified number of bytes from the storage.  <a href="#a2a5439da3183921b1cde0f23da651072">More...</a><br /></td></tr>
+<tr class="separator:a2a5439da3183921b1cde0f23da651072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7628d88caaec762e4a1f515bb4dce88b"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="struct_core_1_1_i_tracker.html">ITracker</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_c_null_storage.html#a7628d88caaec762e4a1f515bb4dce88b">Write</a> (unsigned long long offset, const void *buffer, std::size_t size)</td></tr>
+<tr class="memdesc:a7628d88caaec762e4a1f515bb4dce88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the specified number of bytes to the storage.  <a href="#a7628d88caaec762e4a1f515bb4dce88b">More...</a><br /></td></tr>
+<tr class="separator:a7628d88caaec762e4a1f515bb4dce88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_core_1_1_i_data_storage"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_core_1_1_i_data_storage')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_core_1_1_i_data_storage.html">Core::IDataStorage</a></td></tr>
 <tr class="memitem:aed7a2bd4b7d7200dcfce6c98d261c50f inherit pub_methods_struct_core_1_1_i_data_storage"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed7a2bd4b7d7200dcfce6c98d261c50f"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_i_data_storage.html#aed7a2bd4b7d7200dcfce6c98d261c50f">~IDataStorage</a> ()</td></tr>
@@ -89,7 +89,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A storage implementation that contains nothing. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9025a0041d011d74d103ea0ac929e970"></a>
+<a class="anchor" id="a970bb7c384509dd3bd19f81b270b90ab"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -97,7 +97,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">long long CNullStorage::GetSize </td>
+          <td class="memname">unsigned long long CNullStorage::GetSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -113,11 +113,11 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>Gets the size of contained data. </p>
 <dl class="section return"><dt>Returns</dt><dd>Size in bytes. </dd></dl>
 
-<p>Implements <a class="el" href="struct_core_1_1_i_data_storage.html#a824b7a39ce673e2af2ad7cf99d563a43">Core::IDataStorage</a>.</p>
+<p>Implements <a class="el" href="struct_core_1_1_i_data_storage.html#acd4ced8c7b7b3f633b4fee49e833c8e7">Core::IDataStorage</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6ff1b43a8ae43d463759758f2c5f390e"></a>
+<a class="anchor" id="a2a5439da3183921b1cde0f23da651072"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -133,14 +133,14 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>buffer</em>&#160;</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,18 +159,18 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">offset</td><td>Position in bytes from which to read. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
     <tr><td class="paramname">buffer</td><td>A pointer to a buffer that is capable of storing data chunk of requested size. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Unique pointer to an object that indicates the state of reading operation initiated by the call. </dd></dl>
 
-<p>Implements <a class="el" href="struct_core_1_1_i_data_storage.html#adfd5a89f16c965dbbad8b6555115e359">Core::IDataStorage</a>.</p>
+<p>Implements <a class="el" href="struct_core_1_1_i_data_storage.html#ac069c78b1dbe5e08c1cb075ffa44f145">Core::IDataStorage</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b4ca140d29b69077cd17f44c085869a"></a>
+<a class="anchor" id="a7628d88caaec762e4a1f515bb4dce88b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -186,14 +186,14 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>buffer</em>&#160;</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -212,14 +212,14 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">offset</td><td>Position at which the writing will occure. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
     <tr><td class="paramname">buffer</td><td>A pointer to a buffer that contains the data. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Unique pointer to an object that tracks the state of the writing operation. </dd></dl>
 
-<p>Implements <a class="el" href="struct_core_1_1_i_data_storage.html#a4e5809027cbb597fb030cdf39167867e">Core::IDataStorage</a>.</p>
+<p>Implements <a class="el" href="struct_core_1_1_i_data_storage.html#a62e6d39caecd07049daaebcaa8e3bc3c">Core::IDataStorage</a>.</p>
 
 </div>
 </div>
@@ -230,7 +230,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -45,6 +45,8 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_c_main_frame-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CMainFrame Class Reference</div>  </div>
@@ -66,9 +68,79 @@ Inheritance diagram for CMainFrame:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a15577dcd6e2041be942531ac12b065fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15577dcd6e2041be942531ac12b065fa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DECLARE_FRAME_WND_CLASS</b> (NULL, 0)</td></tr>
-<tr class="separator:a15577dcd6e2041be942531ac12b065fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe163e807e8e3ec54cecc7c9a74108c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe163e807e8e3ec54cecc7c9a74108c0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DECLARE_FRAME_WND_CLASS</b> (NULL, IDR_MAINFRAME)</td></tr>
+<tr class="separator:afe163e807e8e3ec54cecc7c9a74108c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a00291bf5baff42860438b6825623224f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00291bf5baff42860438b6825623224f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>END_MSG_MAP</b> ()</td></tr>
+<tr class="separator:a00291bf5baff42860438b6825623224f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca3f778c3ea83d506254d016a4119d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ca3f778c3ea83d506254d016a4119d8"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnCreate</b> (LPCREATESTRUCT)</td></tr>
+<tr class="separator:a5ca3f778c3ea83d506254d016a4119d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2d2b0b5a12fa591dcbf41ec0368cc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d2d2b0b5a12fa591dcbf41ec0368cc9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>OnClose</b> ()</td></tr>
+<tr class="separator:a1d2d2b0b5a12fa591dcbf41ec0368cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33650fecd066348552acb5fe8a036c34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33650fecd066348552acb5fe8a036c34"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnSize</b> (UINT, CSize)</td></tr>
+<tr class="separator:a33650fecd066348552acb5fe8a036c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d94dbe24ebfcfb5d493e096117ef320"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d94dbe24ebfcfb5d493e096117ef320"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnFileNew</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:a8d94dbe24ebfcfb5d493e096117ef320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab1c1c84ce7fda32c44e64d5140c883"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab1c1c84ce7fda32c44e64d5140c883"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnFileOpen</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:acab1c1c84ce7fda32c44e64d5140c883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ceb6135cc7c2419710221d2cd7f2664"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ceb6135cc7c2419710221d2cd7f2664"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnFileSave</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:a2ceb6135cc7c2419710221d2cd7f2664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad222a2f8efcaf602ae56d5f5300bdedd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad222a2f8efcaf602ae56d5f5300bdedd"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnFileSaveAs</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:ad222a2f8efcaf602ae56d5f5300bdedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1077fca96ed87c62986e1993b257f5ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1077fca96ed87c62986e1993b257f5ce"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnAppExit</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:a1077fca96ed87c62986e1993b257f5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7545ddd51c5771bcf587ef2f19f088c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7545ddd51c5771bcf587ef2f19f088c7"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnFormatWordWrap</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:a7545ddd51c5771bcf587ef2f19f088c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04dba032a5c3a9f5dce6b13e82313215"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04dba032a5c3a9f5dce6b13e82313215"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnFormatFont</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:a04dba032a5c3a9f5dce6b13e82313215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a0b6ce99e595f7b0ab27f921ec8012"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03a0b6ce99e595f7b0ab27f921ec8012"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>OnHelpAbout</b> (WORD, WORD, HWND, BOOL &amp;)</td></tr>
+<tr class="separator:a03a0b6ce99e595f7b0ab27f921ec8012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc75ed46bd8d77ce474ae0a6bd6186e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bc75ed46bd8d77ce474ae0a6bd6186e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#a9bc75ed46bd8d77ce474ae0a6bd6186e">UpdateLayout</a> (BOOL=FALSE)</td></tr>
+<tr class="memdesc:a9bc75ed46bd8d77ce474ae0a6bd6186e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes inner editor control. <br /></td></tr>
+<tr class="separator:a9bc75ed46bd8d77ce474ae0a6bd6186e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaad795a1dc68a648c303b63b97ce899"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaad795a1dc68a648c303b63b97ce899"></a>
+LRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#aeaad795a1dc68a648c303b63b97ce899">DoFileSave</a> (bool)</td></tr>
+<tr class="memdesc:aeaad795a1dc68a648c303b63b97ce899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows a file dialog to a user and asks editor to open chosen file. <br /></td></tr>
+<tr class="separator:aeaad795a1dc68a648c303b63b97ce899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a4bc434b83c8918d52fd1b51e26c3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49a4bc434b83c8918d52fd1b51e26c3e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#a49a4bc434b83c8918d52fd1b51e26c3e">DoExit</a> ()</td></tr>
+<tr class="memdesc:a49a4bc434b83c8918d52fd1b51e26c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A routine to exit the application. <br /></td></tr>
+<tr class="separator:a49a4bc434b83c8918d52fd1b51e26c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89dee44dfee3ef79f79511f45b0f31f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89dee44dfee3ef79f79511f45b0f31f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#a89dee44dfee3ef79f79511f45b0f31f7">SetTitle</a> (PCTSTR)</td></tr>
+<tr class="memdesc:a89dee44dfee3ef79f79511f45b0f31f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the title of the window with appending application's name at the end. <br /></td></tr>
+<tr class="separator:a89dee44dfee3ef79f79511f45b0f31f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3b27095306833e3d9514ba0ba1c22f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c3b27095306833e3d9514ba0ba1c22f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#a3c3b27095306833e3d9514ba0ba1c22f">PreventDataLoss</a> ()</td></tr>
+<tr class="memdesc:a3c3b27095306833e3d9514ba0ba1c22f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the data in the editor where modified and prososes to a user to save them. <br /></td></tr>
+<tr class="separator:a3c3b27095306833e3d9514ba0ba1c22f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6b64a7d5b0843bfa50d7d4f797d4cca5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b64a7d5b0843bfa50d7d4f797d4cca5"></a>
+<a class="el" href="class_c_editor_ctrl.html">CEditorCtrl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#a6b64a7d5b0843bfa50d7d4f797d4cca5">m_editor</a></td></tr>
+<tr class="memdesc:a6b64a7d5b0843bfa50d7d4f797d4cca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">An editor child control. <br /></td></tr>
+<tr class="separator:a6b64a7d5b0843bfa50d7d4f797d4cca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5d1422b7743bb810fc2ca9baf45e71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa5d1422b7743bb810fc2ca9baf45e71"></a>
+<a class="el" href="class_c_about_window.html">CAboutWindow</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_main_frame.html#aaa5d1422b7743bb810fc2ca9baf45e71">m_about</a></td></tr>
+<tr class="memdesc:aaa5d1422b7743bb810fc2ca9baf45e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">A window that shows README.md. <br /></td></tr>
+<tr class="separator:aaa5d1422b7743bb810fc2ca9baf45e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The main window of Notepad&ndash;. </p>
@@ -79,7 +151,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

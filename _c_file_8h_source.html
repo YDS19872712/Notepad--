@@ -61,72 +61,73 @@
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_core_1_1_c_file.html#a1f8231743c4389a3e1c239101fb8c9df">   20</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="class_core_1_1_c_file.html#a1f8231743c4389a3e1c239101fb8c9df">Mode</a></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            MODE_READ  = 1,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            MODE_WRITE = 2</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        };</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">CFile</a>(PCTSTR path, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mode);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">CFile</a>(<span class="keyword">const</span> <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; file);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">CFile</a>(<a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp;&amp; file);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_core_1_1_c_file.html#a146d61b38c752741357820a5f7e3f3b5">~CFile</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; <a class="code" href="class_core_1_1_c_file.html#a53443ce4ffd85974c128b619dff4f15c">operator =</a>(<span class="keyword">const</span> <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; file);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; <a class="code" href="class_core_1_1_c_file.html#a53443ce4ffd85974c128b619dff4f15c">operator =</a>(<a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp;&amp; file);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">IsOpen</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="class_core_1_1_c_file.html#a4a7020515f3b797507e8f4f395276765">GetSize</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">virtual</span> std::unique_ptr&lt;ITracker&gt; <a class="code" href="class_core_1_1_c_file.html#a9619ed08b4bce130689fc53b6d7c50ff">Read</a>(</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::size_t size,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordtype">void</span>* buffer) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">virtual</span> std::unique_ptr&lt;ITracker&gt; <a class="code" href="class_core_1_1_c_file.html#a3a72767587b5d032c2470f81e8bac938">Write</a>(</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            std::size_t size,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">void</span>* buffer);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> Close();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        HANDLE m_handle;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">   82</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">CFile::IsOpen</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> INVALID_HANDLE_VALUE != m_handle;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> CFile::Close()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (INVALID_HANDLE_VALUE != m_handle) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            ::CloseHandle(m_handle);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // CORE_CFILE_H</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            MODE_READ     = 1,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            MODE_WRITE    = 2,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            MODE_TRUNCATE = 4</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        };</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">CFile</a>(PCTSTR path, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">CFile</a>(<span class="keyword">const</span> <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; file);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">CFile</a>(<a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp;&amp; file);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_core_1_1_c_file.html#a146d61b38c752741357820a5f7e3f3b5">~CFile</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; <a class="code" href="class_core_1_1_c_file.html#a53443ce4ffd85974c128b619dff4f15c">operator =</a>(<span class="keyword">const</span> <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; file);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp; <a class="code" href="class_core_1_1_c_file.html#a53443ce4ffd85974c128b619dff4f15c">operator =</a>(<a class="code" href="class_core_1_1_c_file.html">CFile</a>&amp;&amp; file);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">IsOpen</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="class_core_1_1_c_file.html#a5bcd2bf7af8594761550060b759bf7f3">GetSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">virtual</span> std::unique_ptr&lt;ITracker&gt; <a class="code" href="class_core_1_1_c_file.html#a2508953fdd27389b64de0d832687bd09">Read</a>(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordtype">void</span>* buffer,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            std::size_t size) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">virtual</span> std::unique_ptr&lt;ITracker&gt; <a class="code" href="class_core_1_1_c_file.html#a0cc7c66908344dadfb77deb3d4d5cd69">Write</a>(</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">void</span>* buffer,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::size_t size);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> Close();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        HANDLE m_handle;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">   83</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">CFile::IsOpen</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> INVALID_HANDLE_VALUE != m_handle;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> CFile::Close()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (INVALID_HANDLE_VALUE != m_handle) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            ::CloseHandle(m_handle);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif // CORE_CFILE_H</span></div>
 <div class="ttc" id="class_core_1_1_c_file_html_a1f8231743c4389a3e1c239101fb8c9df"><div class="ttname"><a href="class_core_1_1_c_file.html#a1f8231743c4389a3e1c239101fb8c9df">Core::CFile::Mode</a></div><div class="ttdeci">Mode</div><div class="ttdoc">File mode flags. </div><div class="ttdef"><b>Definition:</b> CFile.h:20</div></div>
-<div class="ttc" id="class_core_1_1_c_file_html_a133ae39ebb1eecffeab2fc8b28398254"><div class="ttname"><a href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">Core::CFile::IsOpen</a></div><div class="ttdeci">bool IsOpen() const </div><div class="ttdoc">Checks if file is open. </div><div class="ttdef"><b>Definition:</b> CFile.h:82</div></div>
+<div class="ttc" id="class_core_1_1_c_file_html_a133ae39ebb1eecffeab2fc8b28398254"><div class="ttname"><a href="class_core_1_1_c_file.html#a133ae39ebb1eecffeab2fc8b28398254">Core::CFile::IsOpen</a></div><div class="ttdeci">bool IsOpen() const </div><div class="ttdoc">Checks if file is open. </div><div class="ttdef"><b>Definition:</b> CFile.h:83</div></div>
 <div class="ttc" id="class_core_1_1_c_file_html_aca8468332b1b63a2bc2f9ea89ac5a5dc"><div class="ttname"><a href="class_core_1_1_c_file.html#aca8468332b1b63a2bc2f9ea89ac5a5dc">Core::CFile::CFile</a></div><div class="ttdeci">CFile(PCTSTR path, unsigned int mode)</div><div class="ttdoc">A constructor which constructs an object by path. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:9</div></div>
-<div class="ttc" id="class_core_1_1_c_file_html_a9619ed08b4bce130689fc53b6d7c50ff"><div class="ttname"><a href="class_core_1_1_c_file.html#a9619ed08b4bce130689fc53b6d7c50ff">Core::CFile::Read</a></div><div class="ttdeci">virtual std::unique_ptr&lt; ITracker &gt; Read(unsigned long long offset, std::size_t size, void *buffer) const </div><div class="ttdoc">Reads the specified number of bytes from the storage. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:78</div></div>
-<div class="ttc" id="class_core_1_1_c_file_html_a146d61b38c752741357820a5f7e3f3b5"><div class="ttname"><a href="class_core_1_1_c_file.html#a146d61b38c752741357820a5f7e3f3b5">Core::CFile::~CFile</a></div><div class="ttdeci">virtual ~CFile()</div><div class="ttdoc">A destructor that destructs (Captain Obvious). </div><div class="ttdef"><b>Definition:</b> CFile.cpp:41</div></div>
-<div class="ttc" id="namespace_core_html"><div class="ttname"><a href="namespace_core.html">Core</a></div><div class="ttdef"><b>Definition:</b> CChangeBuffer.h:8</div></div>
-<div class="ttc" id="class_core_1_1_c_file_html_a53443ce4ffd85974c128b619dff4f15c"><div class="ttname"><a href="class_core_1_1_c_file.html#a53443ce4ffd85974c128b619dff4f15c">Core::CFile::operator=</a></div><div class="ttdeci">CFile &amp; operator=(const CFile &amp;file)</div><div class="ttdoc">Copy operator. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:47</div></div>
+<div class="ttc" id="class_core_1_1_c_file_html_a2508953fdd27389b64de0d832687bd09"><div class="ttname"><a href="class_core_1_1_c_file.html#a2508953fdd27389b64de0d832687bd09">Core::CFile::Read</a></div><div class="ttdeci">virtual std::unique_ptr&lt; ITracker &gt; Read(unsigned long long offset, void *buffer, std::size_t size) const </div><div class="ttdoc">Reads the specified number of bytes from the storage. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:82</div></div>
+<div class="ttc" id="class_core_1_1_c_file_html_a146d61b38c752741357820a5f7e3f3b5"><div class="ttname"><a href="class_core_1_1_c_file.html#a146d61b38c752741357820a5f7e3f3b5">Core::CFile::~CFile</a></div><div class="ttdeci">virtual ~CFile()</div><div class="ttdoc">A destructor that destructs (Captain Obvious). </div><div class="ttdef"><b>Definition:</b> CFile.cpp:45</div></div>
+<div class="ttc" id="namespace_core_html"><div class="ttname"><a href="namespace_core.html">Core</a></div><div class="ttdef"><b>Definition:</b> CBatchTracker.h:8</div></div>
+<div class="ttc" id="class_core_1_1_c_file_html_a53443ce4ffd85974c128b619dff4f15c"><div class="ttname"><a href="class_core_1_1_c_file.html#a53443ce4ffd85974c128b619dff4f15c">Core::CFile::operator=</a></div><div class="ttdeci">CFile &amp; operator=(const CFile &amp;file)</div><div class="ttdoc">Copy operator. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:51</div></div>
+<div class="ttc" id="class_core_1_1_c_file_html_a0cc7c66908344dadfb77deb3d4d5cd69"><div class="ttname"><a href="class_core_1_1_c_file.html#a0cc7c66908344dadfb77deb3d4d5cd69">Core::CFile::Write</a></div><div class="ttdeci">virtual std::unique_ptr&lt; ITracker &gt; Write(unsigned long long offset, const void *buffer, std::size_t size)</div><div class="ttdoc">Write the specified number of bytes to the storage. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:104</div></div>
+<div class="ttc" id="class_core_1_1_c_file_html_a5bcd2bf7af8594761550060b759bf7f3"><div class="ttname"><a href="class_core_1_1_c_file.html#a5bcd2bf7af8594761550060b759bf7f3">Core::CFile::GetSize</a></div><div class="ttdeci">virtual unsigned long long GetSize() const </div><div class="ttdoc">Gets the size of contained data. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:73</div></div>
 <div class="ttc" id="class_core_1_1_c_file_html"><div class="ttname"><a href="class_core_1_1_c_file.html">Core::CFile</a></div><div class="ttdoc">File class that implements IDataStorage interface. </div><div class="ttdef"><b>Definition:</b> CFile.h:13</div></div>
 <div class="ttc" id="struct_core_1_1_i_data_storage_html"><div class="ttname"><a href="struct_core_1_1_i_data_storage.html">Core::IDataStorage</a></div><div class="ttdoc">An interface suitable for asynchronous data access. </div><div class="ttdef"><b>Definition:</b> IDataStorage.h:13</div></div>
-<div class="ttc" id="class_core_1_1_c_file_html_a4a7020515f3b797507e8f4f395276765"><div class="ttname"><a href="class_core_1_1_c_file.html#a4a7020515f3b797507e8f4f395276765">Core::CFile::GetSize</a></div><div class="ttdeci">virtual long long GetSize() const </div><div class="ttdoc">Gets the size of contained data. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:69</div></div>
-<div class="ttc" id="class_core_1_1_c_file_html_a3a72767587b5d032c2470f81e8bac938"><div class="ttname"><a href="class_core_1_1_c_file.html#a3a72767587b5d032c2470f81e8bac938">Core::CFile::Write</a></div><div class="ttdeci">virtual std::unique_ptr&lt; ITracker &gt; Write(unsigned long long offset, std::size_t size, const void *buffer)</div><div class="ttdoc">Write the specified number of bytes to the storage. </div><div class="ttdef"><b>Definition:</b> CFile.cpp:100</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

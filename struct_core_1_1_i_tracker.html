@@ -66,9 +66,10 @@ Inheritance diagram for Core::ITracker:</div>
  <div class="center">
   <img src="struct_core_1_1_i_tracker.png" usemap="#Core::ITracker_map" alt=""/>
   <map id="Core::ITracker_map" name="Core::ITracker_map">
-<area href="class_core_1_1_c_file_tracker.html" title="A class that allows to track asynchronous file operations. " alt="Core::CFileTracker" shape="rect" coords="0,56,151,80"/>
-<area href="struct_core_1_1_c_tracker_complete.html" title="A tracker that always reports complete state. " alt="Core::CTrackerComplete" shape="rect" coords="161,56,312,80"/>
-<area href="struct_core_1_1_c_tracker_failed.html" title="A tracker that always reports failed state. " alt="Core::CTrackerFailed" shape="rect" coords="322,56,473,80"/>
+<area href="class_core_1_1_c_batch_tracker.html" title="A batch of trackers. " alt="Core::CBatchTracker" shape="rect" coords="0,56,151,80"/>
+<area href="class_core_1_1_c_file_tracker.html" title="A class that allows to track asynchronous file operations. " alt="Core::CFileTracker" shape="rect" coords="161,56,312,80"/>
+<area href="struct_core_1_1_c_tracker_complete.html" title="A tracker that always reports complete state. " alt="Core::CTrackerComplete" shape="rect" coords="322,56,473,80"/>
+<area href="struct_core_1_1_c_tracker_failed.html" title="A tracker that always reports failed state. " alt="Core::CTrackerFailed" shape="rect" coords="483,56,634,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -119,7 +120,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>Gets the current state of an operation that is tracked. </p>
 <p>Since <a class="el" href="struct_core_1_1_i_tracker.html" title="An interface for tracking the state of an operation. ">ITracker</a> is designed for one-time use only, it is expected that <a class="el" href="struct_core_1_1_i_tracker.html#aa41d1e837656f938806586af20778e59" title="Gets the current state of an operation that is tracked. ">GetState()</a> will never return STATE_PENDING once it has already returned STATE_COMPLETE or STATE_FAILED. A value of STATE_PENDING may never be returned if an operation completed immediately, disregarding successfully or not. </p>
 
-<p>Implemented in <a class="el" href="class_core_1_1_c_file_tracker.html#ad99eeb9fda6609d8c494dc343b1ba2e4">Core::CFileTracker</a>, <a class="el" href="struct_core_1_1_c_tracker_complete.html#accd5784b73ac64bbe9497a15a3889d4d">Core::CTrackerComplete</a>, and <a class="el" href="struct_core_1_1_c_tracker_failed.html#a2362d89bc3cd466d34261c4102af66a9">Core::CTrackerFailed</a>.</p>
+<p>Implemented in <a class="el" href="class_core_1_1_c_batch_tracker.html#ace830c11e2b4fafc269b2c8c1c7ab73b">Core::CBatchTracker</a>, <a class="el" href="class_core_1_1_c_file_tracker.html#ad99eeb9fda6609d8c494dc343b1ba2e4">Core::CFileTracker</a>, <a class="el" href="struct_core_1_1_c_tracker_complete.html#accd5784b73ac64bbe9497a15a3889d4d">Core::CTrackerComplete</a>, and <a class="el" href="struct_core_1_1_c_tracker_failed.html#a2362d89bc3cd466d34261c4102af66a9">Core::CTrackerFailed</a>.</p>
 
 </div>
 </div>
@@ -129,7 +130,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

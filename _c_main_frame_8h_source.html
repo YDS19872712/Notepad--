@@ -54,33 +54,101 @@
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;atlbase.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;atlapp.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;atlwinx.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;atlframe.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_c_main_frame.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_main_frame.html">CMainFrame</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    : <span class="keyword">public</span> CFrameWindowImpl&lt;CMainFrame&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//  , public CUpdateUI&lt;CMainFrame&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    DECLARE_FRAME_WND_CLASS(NULL, 0);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    BEGIN_MSG_MAP(<a class="code" href="class_c_main_frame.html">CMainFrame</a>)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;atldlgs.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;atlmisc.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;atlcrack.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;atlframe.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;Notepad--/CEditorCtrl.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;Notepad--/CAboutWindow.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;Notepad--/resource.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_c_main_frame.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_main_frame.html">CMainFrame</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    : <span class="keyword">public</span> CFrameWindowImpl&lt;CMainFrame&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    , <span class="keyword">public</span> CUpdateUI&lt;CMainFrame&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        MESSAGE_HANDLER(WM_DESTROY, OnDestroy)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    END_MSG_MAP();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    BEGIN_UPDATE_UI_MAP(<a class="code" href="class_c_main_frame.html">CMainFrame</a>)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    LRESULT OnDestroy(UINT, WPARAM, LPARAM, BOOL&amp;);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif // CMAINFRAME_H</span></div>
-<div class="ttc" id="class_c_main_frame_html"><div class="ttname"><a href="class_c_main_frame.html">CMainFrame</a></div><div class="ttdoc">The main window of Notepad–. </div><div class="ttdef"><b>Definition:</b> CMainFrame.h:12</div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        UPDATE_ELEMENT(ID_FORMAT_WORDWRAP, UPDUI_MENUPOPUP)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    END_UPDATE_UI_MAP()</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    BEGIN_MSG_MAP(<a class="code" href="class_c_main_frame.html">CMainFrame</a>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        MSG_WM_CREATE (OnCreate)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        MSG_WM_CLOSE  (OnClose)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        COMMAND_ID_HANDLER(ID_FILE_NEW,        OnFileNew)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        COMMAND_ID_HANDLER(ID_FILE_OPEN,       OnFileOpen)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        COMMAND_ID_HANDLER(ID_FILE_SAVE,       OnFileSave)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        COMMAND_ID_HANDLER(ID_FILE_SAVE_AS,    OnFileSaveAs)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        COMMAND_ID_HANDLER(ID_APP_EXIT,        OnAppExit)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        COMMAND_ID_HANDLER(ID_FORMAT_WORDWRAP, OnFormatWordWrap)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        COMMAND_ID_HANDLER(ID_FORMAT_FONT,     OnFormatFont)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        COMMAND_ID_HANDLER(ID_HELP_ABOUT,      OnHelpAbout)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        CHAIN_MSG_MAP(CFrameWindowImpl&lt;CMainFrame&gt;)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        CHAIN_MSG_MAP(CUpdateUI&lt;CMainFrame&gt;)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    END_MSG_MAP();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    LRESULT OnCreate(LPCREATESTRUCT);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> OnClose();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    LRESULT OnSize(UINT, CSize);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    LRESULT OnFileNew(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    LRESULT OnFileOpen(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    LRESULT OnFileSave(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    LRESULT OnFileSaveAs(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    LRESULT OnAppExit(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    LRESULT OnFormatWordWrap(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    LRESULT OnFormatFont(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    LRESULT OnHelpAbout(WORD, WORD, HWND, BOOL&amp;);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_main_frame.html#a9bc75ed46bd8d77ce474ae0a6bd6186e">UpdateLayout</a>(BOOL = FALSE);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    LRESULT <a class="code" href="class_c_main_frame.html#aeaad795a1dc68a648c303b63b97ce899">DoFileSave</a>(<span class="keywordtype">bool</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_c_main_frame.html#a49a4bc434b83c8918d52fd1b51e26c3e">DoExit</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_main_frame.html#a89dee44dfee3ef79f79511f45b0f31f7">SetTitle</a>(PCTSTR);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_c_main_frame.html#a3c3b27095306833e3d9514ba0ba1c22f">PreventDataLoss</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_c_main_frame.html#a6b64a7d5b0843bfa50d7d4f797d4cca5">  106</a></span>&#160;    <a class="code" href="class_c_editor_ctrl.html">CEditorCtrl</a> <a class="code" href="class_c_main_frame.html#a6b64a7d5b0843bfa50d7d4f797d4cca5">m_editor</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_c_main_frame.html#aaa5d1422b7743bb810fc2ca9baf45e71">  111</a></span>&#160;    <a class="code" href="class_c_about_window.html">CAboutWindow</a> <a class="code" href="class_c_main_frame.html#aaa5d1422b7743bb810fc2ca9baf45e71">m_about</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif // CMAINFRAME_H</span></div>
+<div class="ttc" id="class_c_main_frame_html_a9bc75ed46bd8d77ce474ae0a6bd6186e"><div class="ttname"><a href="class_c_main_frame.html#a9bc75ed46bd8d77ce474ae0a6bd6186e">CMainFrame::UpdateLayout</a></div><div class="ttdeci">void UpdateLayout(BOOL=FALSE)</div><div class="ttdoc">Resizes inner editor control. </div><div class="ttdef"><b>Definition:</b> CMainFrame.cpp:121</div></div>
+<div class="ttc" id="class_c_main_frame_html_a49a4bc434b83c8918d52fd1b51e26c3e"><div class="ttname"><a href="class_c_main_frame.html#a49a4bc434b83c8918d52fd1b51e26c3e">CMainFrame::DoExit</a></div><div class="ttdeci">bool DoExit()</div><div class="ttdoc">A routine to exit the application. </div><div class="ttdef"><b>Definition:</b> CMainFrame.cpp:156</div></div>
+<div class="ttc" id="class_c_main_frame_html_aaa5d1422b7743bb810fc2ca9baf45e71"><div class="ttname"><a href="class_c_main_frame.html#aaa5d1422b7743bb810fc2ca9baf45e71">CMainFrame::m_about</a></div><div class="ttdeci">CAboutWindow m_about</div><div class="ttdoc">A window that shows README.md. </div><div class="ttdef"><b>Definition:</b> CMainFrame.h:111</div></div>
+<div class="ttc" id="class_c_main_frame_html_a3c3b27095306833e3d9514ba0ba1c22f"><div class="ttname"><a href="class_c_main_frame.html#a3c3b27095306833e3d9514ba0ba1c22f">CMainFrame::PreventDataLoss</a></div><div class="ttdeci">bool PreventDataLoss()</div><div class="ttdoc">Checks if the data in the editor where modified and prososes to a user to save them. </div><div class="ttdef"><b>Definition:</b> CMainFrame.cpp:183</div></div>
+<div class="ttc" id="class_c_main_frame_html_aeaad795a1dc68a648c303b63b97ce899"><div class="ttname"><a href="class_c_main_frame.html#aeaad795a1dc68a648c303b63b97ce899">CMainFrame::DoFileSave</a></div><div class="ttdeci">LRESULT DoFileSave(bool)</div><div class="ttdoc">Shows a file dialog to a user and asks editor to open chosen file. </div><div class="ttdef"><b>Definition:</b> CMainFrame.cpp:130</div></div>
+<div class="ttc" id="class_c_editor_ctrl_html"><div class="ttname"><a href="class_c_editor_ctrl.html">CEditorCtrl</a></div><div class="ttdoc">An editor control. </div><div class="ttdef"><b>Definition:</b> CEditorCtrl.h:26</div></div>
+<div class="ttc" id="class_c_main_frame_html_a89dee44dfee3ef79f79511f45b0f31f7"><div class="ttname"><a href="class_c_main_frame.html#a89dee44dfee3ef79f79511f45b0f31f7">CMainFrame::SetTitle</a></div><div class="ttdeci">void SetTitle(PCTSTR)</div><div class="ttdoc">Sets the title of the window with appending application&#39;s name at the end. </div><div class="ttdef"><b>Definition:</b> CMainFrame.cpp:172</div></div>
+<div class="ttc" id="class_c_main_frame_html"><div class="ttname"><a href="class_c_main_frame.html">CMainFrame</a></div><div class="ttdoc">The main window of Notepad–. </div><div class="ttdef"><b>Definition:</b> CMainFrame.h:18</div></div>
+<div class="ttc" id="class_c_main_frame_html_a6b64a7d5b0843bfa50d7d4f797d4cca5"><div class="ttname"><a href="class_c_main_frame.html#a6b64a7d5b0843bfa50d7d4f797d4cca5">CMainFrame::m_editor</a></div><div class="ttdeci">CEditorCtrl m_editor</div><div class="ttdoc">An editor child control. </div><div class="ttdef"><b>Definition:</b> CMainFrame.h:106</div></div>
+<div class="ttc" id="class_c_about_window_html"><div class="ttname"><a href="class_c_about_window.html">CAboutWindow</a></div><div class="ttdoc">A window that renders REAMDE.md inside itself. </div><div class="ttdef"><b>Definition:</b> CAboutWindow.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

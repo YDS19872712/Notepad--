@@ -65,39 +65,40 @@
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_core_1_1_i_tracker.html#affc6ae063a608a269036777604c12aea">State</a> <a class="code" href="class_core_1_1_c_file_tracker.html#ad99eeb9fda6609d8c494dc343b1ba2e4">GetState</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> SetOffset(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        OVERLAPPED* GetOverlapped();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        OVERLAPPED m_overlapped;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_core_1_1_c_file_tracker.html#aa351256887b0f4eb5140d153efed6dba">SetOffset</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        OVERLAPPED* GetOverlapped();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> CFileTracker::SetOffset(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        ULARGE_INTEGER fileOffset;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        fileOffset.QuadPart = offset;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        m_overlapped.Offset = fileOffset.LowPart;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        m_overlapped.OffsetHigh = fileOffset.HighPart;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">inline</span> OVERLAPPED* CFileTracker::GetOverlapped()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> &amp;m_overlapped;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif // CORE_CFILETRACKER_H</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        OVERLAPPED m_overlapped;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_core_1_1_c_file_tracker.html#aa351256887b0f4eb5140d153efed6dba">   33</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_core_1_1_c_file_tracker.html#aa351256887b0f4eb5140d153efed6dba">CFileTracker::SetOffset</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        ULARGE_INTEGER fileOffset;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        fileOffset.QuadPart = offset;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        m_overlapped.Offset = fileOffset.LowPart;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        m_overlapped.OffsetHigh = fileOffset.HighPart;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">inline</span> OVERLAPPED* CFileTracker::GetOverlapped()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> &amp;m_overlapped;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // CORE_CFILETRACKER_H</span></div>
 <div class="ttc" id="class_core_1_1_c_file_tracker_html"><div class="ttname"><a href="class_core_1_1_c_file_tracker.html">Core::CFileTracker</a></div><div class="ttdoc">A class that allows to track asynchronous file operations. </div><div class="ttdef"><b>Definition:</b> CFileTracker.h:11</div></div>
+<div class="ttc" id="class_core_1_1_c_file_tracker_html_aa351256887b0f4eb5140d153efed6dba"><div class="ttname"><a href="class_core_1_1_c_file_tracker.html#aa351256887b0f4eb5140d153efed6dba">Core::CFileTracker::SetOffset</a></div><div class="ttdeci">void SetOffset(unsigned long long offset)</div><div class="ttdoc">Fills OVERLAPPED structure Offset and OffsetHigh fields. </div><div class="ttdef"><b>Definition:</b> CFileTracker.h:33</div></div>
 <div class="ttc" id="class_core_1_1_c_file_tracker_html_ad99eeb9fda6609d8c494dc343b1ba2e4"><div class="ttname"><a href="class_core_1_1_c_file_tracker.html#ad99eeb9fda6609d8c494dc343b1ba2e4">Core::CFileTracker::GetState</a></div><div class="ttdeci">virtual State GetState() const </div><div class="ttdoc">Gets the current state of an operation that is tracked. </div><div class="ttdef"><b>Definition:</b> CFileTracker.cpp:19</div></div>
-<div class="ttc" id="namespace_core_html"><div class="ttname"><a href="namespace_core.html">Core</a></div><div class="ttdef"><b>Definition:</b> CChangeBuffer.h:8</div></div>
+<div class="ttc" id="namespace_core_html"><div class="ttname"><a href="namespace_core.html">Core</a></div><div class="ttdef"><b>Definition:</b> CBatchTracker.h:8</div></div>
 <div class="ttc" id="struct_core_1_1_i_tracker_html_affc6ae063a608a269036777604c12aea"><div class="ttname"><a href="struct_core_1_1_i_tracker.html#affc6ae063a608a269036777604c12aea">Core::ITracker::State</a></div><div class="ttdeci">State</div><div class="ttdoc">Represents available states of an operation. </div><div class="ttdef"><b>Definition:</b> ITracker.h:14</div></div>
 <div class="ttc" id="struct_core_1_1_i_tracker_html"><div class="ttname"><a href="struct_core_1_1_i_tracker.html">Core::ITracker</a></div><div class="ttdoc">An interface for tracking the state of an operation. </div><div class="ttdef"><b>Definition:</b> ITracker.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2014 02:07:15 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 08:33:56 for Notepad-- by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
