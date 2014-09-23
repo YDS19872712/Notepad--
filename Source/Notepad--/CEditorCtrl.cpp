@@ -10,8 +10,8 @@ using namespace Scintilla;
 using namespace Core;
 
 #define IDLE_TIMER_ID       1
-#define IDLE_TIMER_ELAPSE   50
-#define READ_BUFFER_SIZE    4096
+#define IDLE_TIMER_ELAPSE   10
+#define READ_BUFFER_SIZE    0x2000
 #define PRELOAD_SIZE        READ_BUFFER_SIZE * 1000
 
 extern CAppModule _Module;
