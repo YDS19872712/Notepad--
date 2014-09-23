@@ -19,6 +19,10 @@
 
 #define SCINTILLA_CTRL_ID 1001
 
+/**
+ * An editor control.
+ * Encapsulates Scintilla component.
+ */
 class CEditorCtrl
     : public CWindowImpl<CEditorCtrl>
     , public CIdleHandler
@@ -27,26 +31,71 @@ public:
 
     DECLARE_WND_CLASS_EX(NULL, 0, -1)
 
+    /**
+     * Gets the path of currently edited file.
+     * @returns A pointer to zero-terminated string.
+     */
     PCTSTR GetPath() const;
 
+    /**
+     * Checks whether current path is empty, which means
+     * that no file is open.
+     * @returns true if current path is empty.
+     */
     bool PathIsEmpty() const;
 
+    /**
+     * Checks if current text was modified in the editor.
+     * @returns true if text was modified.
+     */
     bool IsModified() const;
 
+    /**
+     * Initializes Scintilla's window classes.
+     */
     static void Init();
 
+    /**
+     * Sets the font of the editor.
+     * @param fd A font dialog that has been already presented to a user.
+     */
     void SetFont(CFontDialog& fd);
 
+    /**
+     * Gets the font used in the editor.
+     * @param fd A font dialog not yet presented to a user.
+     */
     void GetFont(CFontDialog& fd) const;
 
 private:
 
+    /**
+     * Holds the pointers by which Scintilla's API
+     * can be reached.
+     */
     struct SScintilla
     {
+        /**
+         * A window handle to Scintilla's control.
+         */
         CWindow m_wnd;
+
+        /**
+         * Internal pointer to Scintilla's instance.
+         */
         void* m_ptr;
+
+        /**
+         * A pointer to the function by which
+         * all API is provided.
+         */
         int (* m_fn)(void*, int, int, int);
 
+        /**
+         * Mimics message sending to Scintilla control.
+         * Actually no messages are sent, this is a direct
+         * call to Scintilla API.
+         */
         int Send(int, int = 0, int = 0);
     };
 
@@ -86,24 +135,64 @@ private:
 
     BOOL OnIdle();
 
+    /**
+     * Replaces curretly edited file with a blank.
+     */
     void DoFileNew();
 
+    /**
+     * Opens a file whose path is stored in m_path.
+     */
     bool DoFileOpen();
 
+    /**
+     * Saves a file by the path that is stored in m_path.
+     */
     bool DoFileSave();
 
+    /**
+     * Resets Scintilla control's state.
+     */
     void ResetScintilla();
 
+    /**
+     * A path to currently edited file.
+     */
     TCHAR m_path[MAX_PATH];
 
+    /**
+     * A buffer that holds all the changes made to the file.
+     */
     std::unique_ptr<Core::CChangeBuffer> m_changeBuffer;
 
+    /**
+     * An access point to Scintilla API.
+     */
     mutable SScintilla m_scintilla;
+ 
+    /**
+     * Amount of bytes already read from the source file.
+     */
+    unsigned long long m_bytesRead;
+    
+    /**
+     * Amount of bytes needed to be read.
+     */
+    unsigned long long m_bytesToRead;
 
-    unsigned long long m_bytesRead, m_bytesToRead, m_bytesTotal;
+    /**
+     * Total file size.
+     */
+    unsigned long long m_bytesTotal;
 
+    /**
+     * A tracker used to check the readiness of reading operations.
+     */
     std::unique_ptr<Core::ITracker> m_tracker;
 
+    /**
+     * A buffer to be used by reading operations.
+     */
     std::vector<BYTE> m_buffer;
 };
 

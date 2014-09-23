@@ -4,9 +4,9 @@ using namespace std;
 using namespace Core;
 
 #define TIMER_ID          1
-#define TIMER_ELAPSE      5
+#define TIMER_ELAPSE      1
 #define PROGRESS_RANGE    100
-#define BUFFER_SIZE       0x8000
+#define BUFFER_SIZE       0x10000
 
 bool CSavingDlg::OnInitDialog(CWindow, LPARAM)
 {

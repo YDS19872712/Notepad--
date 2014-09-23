@@ -59,6 +59,10 @@ namespace Core {
 
     private:
 
+        /**
+         * A block of data, either a projection of some part of a file
+         * or an actual buffer.
+         */
         struct SBlock
         {
             unsigned long long m_offsetVirtual;

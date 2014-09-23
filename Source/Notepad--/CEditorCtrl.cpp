@@ -12,7 +12,7 @@ using namespace Core;
 #define IDLE_TIMER_ID       1
 #define IDLE_TIMER_ELAPSE   50
 #define READ_BUFFER_SIZE    4096
-#define PRELOAD_SIZE        READ_BUFFER_SIZE * 30
+#define PRELOAD_SIZE        READ_BUFFER_SIZE * 1000
 
 extern CAppModule _Module;
 
@@ -306,9 +306,21 @@ bool CEditorCtrl::DoFileOpen()
 
     if (file->IsOpen()) {
         m_changeBuffer.reset(new CChangeBuffer(std::move(storage)));
-        m_bytesRead   = 0;
-        m_bytesTotal  = m_changeBuffer->GetSize();
-        m_bytesToRead = min(PRELOAD_SIZE, m_bytesTotal);
+        m_bytesRead  = 0;
+        m_bytesTotal = m_changeBuffer->GetSize();
+
+        static const PTCHAR text =
+            TEXT("The file is rather big!\n")
+            TEXT("Do you want to load the whole of it?\n")
+            TEXT("Otherwise it will be loaded part by part on scroll down.");
+
+        if ((m_bytesTotal > PRELOAD_SIZE) &&
+            (MessageBox(text, TEXT("You to decide!"),
+                MB_ICONINFORMATION | MB_YESNO) == IDYES)) {
+            m_bytesToRead = m_bytesTotal;
+        } else {
+            m_bytesToRead = min(m_bytesTotal, PRELOAD_SIZE);
+        }
         ResetScintilla();
         return true;
     }

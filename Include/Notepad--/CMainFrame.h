@@ -72,18 +72,42 @@ private:
 
     LRESULT OnHelpAbout(WORD, WORD, HWND, BOOL&);
 
+    /**
+     * Resizes inner editor control.
+     */
     void UpdateLayout(BOOL = FALSE);
 
+    /**
+     * Shows a file dialog to a user and 
+     * asks editor to open chosen file.
+     */
     LRESULT DoFileSave(bool);
 
+    /**
+     * A routine to exit the application.
+     */
     bool DoExit();
 
+    /**
+     * Sets the title of the window with appending
+     * application's name at the end.
+     */
     void SetTitle(PCTSTR);
 
+    /**
+     * Checks if the data in the editor where modified
+     * and prososes to a user to save them.
+     */
     bool PreventDataLoss();
 
+    /**
+     * An editor child control.
+     */
     CEditorCtrl m_editor;
 
+    /**
+     * A window that shows README.md
+     */
     CAboutWindow m_about;
 };
 
