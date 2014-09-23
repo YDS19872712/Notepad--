@@ -47,5 +47,6 @@ void CAboutWindow::DoPaint(CDCHandle dc)
 {
     RECT rc;
     GetClientRect(&rc);
+    ::DrawTextA(dc, m_text, m_sizeOfResource, &rc, DT_CALCRECT);
     ::DrawTextA(dc, m_text, m_sizeOfResource, &rc, 0);
 }
