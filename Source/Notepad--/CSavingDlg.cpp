@@ -6,7 +6,7 @@ using namespace Core;
 #define TIMER_ID          1
 #define TIMER_ELAPSE      1
 #define PROGRESS_RANGE    100
-#define BUFFER_SIZE       0x10000
+#define BUFFER_SIZE       0x40000
 
 bool CSavingDlg::OnInitDialog(CWindow, LPARAM)
 {

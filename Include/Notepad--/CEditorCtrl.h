@@ -194,6 +194,10 @@ private:
      * A buffer to be used by reading operations.
      */
     std::vector<BYTE> m_buffer;
+    /**
+     * Resets the change buffer with a projection of the file located at m_path.
+     */
+    bool ResetChangeBuffer();
 };
 
 inline PCTSTR CEditorCtrl::GetPath() const

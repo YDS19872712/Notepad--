@@ -11,8 +11,9 @@ using namespace Core;
 
 #define IDLE_TIMER_ID       1
 #define IDLE_TIMER_ELAPSE   10
-#define READ_BUFFER_SIZE    0x2000
+#define READ_BUFFER_SIZE    0x10000
 #define PRELOAD_SIZE        READ_BUFFER_SIZE * 1000
+#define FILE_SIZE_LIMIT     0x40000000
 
 extern CAppModule _Module;
 
@@ -301,11 +302,7 @@ void CEditorCtrl::DoFileNew()
 
 bool CEditorCtrl::DoFileOpen()
 {
-    CFile* file = new CFile(m_path, CFile::MODE_READ);
-    unique_ptr<IDataStorage> storage(file);
-
-    if (file->IsOpen()) {
-        m_changeBuffer.reset(new CChangeBuffer(std::move(storage)));
+    if (ResetChangeBuffer()) {
         m_bytesRead  = 0;
         m_bytesTotal = m_changeBuffer->GetSize();
 
@@ -313,6 +310,14 @@ bool CEditorCtrl::DoFileOpen()
             TEXT("The file is rather big!\n")
             TEXT("Do you want to load the whole of it?\n")
             TEXT("Otherwise it will be loaded part by part on scroll down.");
+
+        if (m_bytesTotal > FILE_SIZE_LIMIT) {
+            MessageBox(
+                TEXT("Sorry, the file is too big!"),
+                TEXT("Oops!"),
+                MB_OK | MB_ICONEXCLAMATION);
+            return false;
+        }
 
         if ((m_bytesTotal > PRELOAD_SIZE) &&
             (MessageBox(text, TEXT("You to decide!"),
@@ -374,12 +379,7 @@ bool CEditorCtrl::DoFileSave()
         ::DeleteFile(tmpPath);
     }
 
-    // TODO: Make it DRY
-    CFile* file = new CFile(m_path, CFile::MODE_READ);
-    unique_ptr<IDataStorage> storage(file);
-    m_changeBuffer.reset(new CChangeBuffer(std::move(storage)));
-
-    return true;
+    return ResetChangeBuffer();
 }
 
 void CEditorCtrl::ResetScintilla()
@@ -388,4 +388,15 @@ void CEditorCtrl::ResetScintilla()
     m_scintilla.Send(SCI_CLEARALL);
     m_scintilla.Send(SCI_EMPTYUNDOBUFFER);
     m_scintilla.Send(SCI_SETSAVEPOINT);
+}
+
+bool CEditorCtrl::ResetChangeBuffer()
+{
+    CFile* file = new CFile(m_path, CFile::MODE_READ);
+    unique_ptr<IDataStorage> storage(file);
+    if (file->IsOpen()) {
+        m_changeBuffer.reset(new CChangeBuffer(std::move(storage)));
+        return true;
+    }
+    return false;
 }
