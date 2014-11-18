@@ -92,7 +92,7 @@ private:
     unsigned long long m_bytesWritten;
 
     /**
-     * Number if bytes that are already read from the source.
+     * Number of bytes that are already read from the source.
      */
     unsigned long long m_bytesRead;
 };
