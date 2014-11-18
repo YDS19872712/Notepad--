@@ -29,3 +29,5 @@ located in `SolutionDir\Build\Release`
   It is capable of adding new text at the end of currently edited buffer,
   so that a user can start working with the file long before it was
   totally loaded.
+
+[Documentation](http://yds19872712.github.io/Notepad--/)
